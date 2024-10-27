@@ -1,0 +1,23 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: iventoy
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  rules:
+    - host: iventoy.mydomain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: iventoy
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - iventoy.mydomain.com
+      secretName: iventoy-mydomain-com

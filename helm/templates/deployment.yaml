@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iventoy
+spec:
+  selector:
+    matchLabels:
+      app: iventoy
+  replicas: 1
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 0 
+  template:
+    metadata:
+      labels:
+        app: iventoy
+    spec:
+      hostNetwork: true
+      containers:
+      - name: iventoy
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: true
+          allowPrivilegeEscalation: true
+        volumeMounts:
+        - name: iso
+          mountPath: /opt/iventoy/iso
+        - name: data
+          mountPath: /opt/iventoy/data
+      volumes:
+      - name: iso
+        persistentVolumeClaim:
+          claimName: iventoy-iso
+      - name: data
+        persistentVolumeClaim:
+          claimName: iventoy-data
