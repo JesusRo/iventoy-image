@@ -8,14 +8,14 @@ RUN set -x && \
     tar -xvf ./iventoy-$version-linux-free.tar.gz  && \
     rm -Rf ./iventoy-$version/iso/  && \
     rm -Rf ./iventoy-$version/data/config.dat  && \
-    mkdir -p /run/iventoy && \
-    cp -Rvf ./iventoy-$version/* /run/iventoy/  && \
-    chmod +x /run/iventoy/lib/iventoy && \
+    mkdir -p /opt/iventoy && \
+    cp -Rvf ./iventoy-$version/* /opt/iventoy/  && \
+    chmod +x /opt/iventoy/lib/iventoy && \
     apt-get clean autoclean && \
     apt-get autoremove --yes && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 COPY --chmod=755 run-and-log.sh /run/
-WORKDIR /run/iventoy/
+WORKDIR /opt/iventoy/
 ENV IVENTOY_API_ALL=1 
 ENV IVENTOY_AUTO_RUN=1 
 EXPOSE 80
