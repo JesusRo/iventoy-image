@@ -1,4 +1,4 @@
-FROM debian:stable-20240513-slim
+FROM debian:stable-20241016-slim
 RUN set -x && \
     export version=1.0.20 && \
     apt update && \
