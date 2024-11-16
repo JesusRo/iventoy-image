@@ -1,0 +1,12 @@
+apiVersion: v1
+entries:
+  iventoy:
+  - apiVersion: v2
+    appVersion: 1.0.20
+    created: "2024-11-16T10:20:23.932749092Z"
+    digest: 65f381e5d985cf61fa3f1650fa0d0c9fd696ecebb5d734472681f36d797d5945
+    name: iventoy
+    urls:
+    - iventoy-0.0.6.tgz
+    version: 0.0.6
+generated: "2024-11-16T10:20:23.932775852Z"
