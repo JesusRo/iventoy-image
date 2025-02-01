@@ -1,4 +1,4 @@
-FROM debian:stable-20241223-slim
+FROM debian:stable-20250113-slim
 ADD https://github.com/ventoy/PXE/releases/download/v1.0.20/iventoy-1.0.20-linux-free.tar.gz /tmp/
 RUN set -x && \
     export version=1.0.20 && \
